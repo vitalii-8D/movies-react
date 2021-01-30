@@ -1,0 +1,112 @@
+.header-banner {
+  position: relative;
+  height: 70vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("http://image.tmdb.org/t/p/w1280/srYya1ZlI97Au4jUYAktDe3avyA.jpg");
+  background-color: #ffffff;
+  background-position: top 10% center;
+}
+
+/*Description*/
+.header-banner_description {
+  width: 350px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  /*background-color: rgba(40, 40, 40, 0.7);*/
+  /*color: #f7f7f7;*/
+  border: 1px solid transparent;
+  border-top-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.banner-title {
+  margin-bottom: 10px;
+}
+.banner-overview {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+/*Button*/
+.banner-btn {
+  border: 1px solid;
+}
+.banner-btn {
+  border-radius: 5px;
+  background: linear-gradient(to right, #fa7070, #e83535) !important;
+  border: none;
+  /*color: #FFFFFF;*/
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px;
+  width: 180px;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin: 5px;
+}
+.banner-btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+.banner-btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: -3px;
+  right: -20px;
+  transition: 0.5s;
+  transform: scale(2);
+}
+.banner-btn:hover span {
+  padding-right: 25px;
+}
+.banner-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*Banner info*/
+.header-banner_info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.banner-info_item {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  /*color: #f7f7f7;*/
+
+  margin-right: 30px;
+}
+
+/*Left info*/
+.header-banner_info-left .banner-info_item span {
+  font-weight: 400;
+  color: #d8232a;
+  margin-left: 5px;
+}
+
+/*Right info*/
+.header-banner_info-right i {
+  color: #d8232a;
+}
+.header-banner_info-right .banner-info_item span {
+  margin-left: 5px;
+}
