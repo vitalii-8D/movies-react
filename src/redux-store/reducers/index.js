@@ -3,8 +3,8 @@ const {GENRES_LOADED, MAIN_MOVIES_LOADED, CONFIGURATIONS_LOADED} = actionTypes;
 
 const defaultStore = {
    genres: [],
-   mainMovies: [],
-   configurations: []
+   mainMovies: {},
+   configurations: {}
 }
 
 export const movieReducer = (store = defaultStore, action) => {
