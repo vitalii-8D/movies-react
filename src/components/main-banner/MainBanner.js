@@ -10,9 +10,9 @@ class MainBanner extends Component {
    render() {
       const {movie, imgConfigs = {}} = this.props;
       const {base_url='', backdrop_sizes=[]} = imgConfigs;
-      debugger
+
       return (
-         <div className="header-banner" style={{backgroundImage: `url("${base_url}${backdrop_sizes[2]}/${movie.backdrop_path}")`}}>
+         <div className="header-banner" style={{backgroundImage: `url("${base_url}${backdrop_sizes[2]}${movie.backdrop_path}")`}}>
             <div className="header-banner_description">
                <h2 className="banner-title">{movie.title}</h2>
                <div className="banner-overview">

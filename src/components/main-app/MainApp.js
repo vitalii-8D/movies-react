@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import {
+   BrowserRouter as Router,
+   Switch,
+   Route,
+   Redirect
+} from 'react-router-dom';
 
 import MainNavigation from "../main-navigation/MainNavigation";
 import MainBanner from "../main-banner/MainBanner";
@@ -19,33 +25,44 @@ class MainApp extends Component {
          getGenres && getGenres();
       }
       if (!Object.keys(mainMovies).length) {
-         getConfigurations && getConfigurations();
-      }
-      if (!Object.keys(configurations).length) {
          getMainMovies && getMainMovies();
       }
-      debugger
+      if (!Object.keys(configurations).length) {
+         getConfigurations && getConfigurations();
+      }
+
    }
 
    render() {
       const {genres, mainMovies: {results = ''}, configurations} = this.props;
 
       return (
-         <div>
-            <header className="header">
-               <div className="container">
-                  <MainNavigation/>
+         <Router>
+            <Switch>
 
-                  {results && <MainBanner movie={results[5]}/>}
-               </div>
-            </header>
+               <div>
+                  <header className="header">
+                     <div className="container">
+                        <MainNavigation/>
 
-            <section className="movies-popular">
-               <div className="container">
-                  <MoviesList/>
+                        <Route path='/home' exact>
+                           {!!results && <MainBanner movie={results[0]}/>}
+                        </Route>
+                     </div>
+                  </header>
+
+                  <section className="movies-popular">
+                     <div className="container">
+                        <Route path='/home' exact>
+                           {!!results && <MoviesList movies={results}/>}
+                        </Route>
+                     </div>
+                  </section>
                </div>
-            </section>
-         </div>
+
+               <Redirect from='/' to='/home'/>
+            </Switch>
+         </Router>
       );
    }
 }

@@ -1,8 +1,7 @@
 .movies-item {
-  width: 32%;
-  display: flex;
+  width: 24%;
+  position: relative;
   margin: 0 auto 20px;
-  //margin-bottom: 20px;
 
   border: 2px solid #aaaaaa;
   border-radius: 5px;
@@ -50,14 +49,14 @@
 
 /*Info area*/
 .movies-item_info {
-  position: relative;
   padding: 10px 10px 40px;
   text-align: left;
 }
 .movies-item_info_title {
-  /*margin-bottom: 5px;*/
+  margin-bottom: 10px;
   padding-left: 10px;
   font-size: 18px;
+  line-height: 1.2;
   font-weight: 700;
   color: #000000;
 }

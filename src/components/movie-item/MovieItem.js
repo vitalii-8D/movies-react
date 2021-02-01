@@ -1,28 +1,30 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 import './MovieItem.scss';
 
 class MovieItem extends Component {
    render() {
+      const {movie = {}, configurations = {}} = this.props;
+      const {images: {base_url = '', poster_sizes = []} = {}} = configurations;
+
       return (
          <div className="movies-item">
 
             <div className="movies-item_img">
-               <img src="https://image.tmdb.org/t/p/w500/qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg" alt="Ave"/>
-                  <div className="movies-item_rating">
-                     <div className="movie-rating">Rating: 5.6</div>
-                     <div className="movie-votes">Votes: 1138</div>
-                     <div className="movie-genres">Action, Crime, Drama, Thriller</div>
-                     <div className="movie-published">2020-07-02</div>
-                  </div>
+               <img src={`${base_url}${poster_sizes[4]}${movie.poster_path}`} alt="Ave"/>
+               <div className="movies-item_rating">
+                  <div className="movie-rating">Rating: {movie.vote_average}</div>
+                  <div className="movie-votes">Votes: {movie.vote_count}</div>
+                  <div className="movie-genres">Action, Crime, Drama, Thriller</div>
+                  <div className="movie-published">{movie.release_date}</div>
+               </div>
             </div>
 
             <div className="movies-item_info">
-               <div className="movies-item_info_title">Ava</div>
-               <div className="movies-item_info_tagline">~ Kill. Or be killed. ~</div>
+               <div className="movies-item_info_title">{movie.original_title}</div>
                <div className="movies-item_info_description">
-                  A black ops assassin is forced to fight
-                  for her own survival after a job goes dangerously wrong.
+                  {'    ' + movie.overview}
                </div>
                <div className="btn-wrapper">
                   <button className="watch-btn"><span>Watch</span></button>
@@ -34,4 +36,11 @@ class MovieItem extends Component {
    }
 }
 
-export default MovieItem;
+const mapStateToProps = (store) => {
+   const {configurations} = store;
+   return {
+      configurations
+   }
+}
+
+export default connect(mapStateToProps)(MovieItem);

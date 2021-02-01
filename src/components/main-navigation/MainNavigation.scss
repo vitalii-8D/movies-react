@@ -32,11 +32,14 @@
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 700;
+  text-decoration: none;
   color: #aaaaaa;
   cursor: pointer;
 }
 .nav-item:hover {
   background-color: lightcyan;
+  text-decoration: none;
+  color: inherit;
 }
 
 .nav-item.active {
